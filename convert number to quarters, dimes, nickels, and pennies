@@ -1,0 +1,28 @@
+using System;
+using static System.Console;
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            WriteLine("\tChanger App\n");
+            double coinInCent = 0.92;
+            double coin = 100 * coinInCent;
+            WriteLine("Change Amount : {0,3:F}", coinInCent);
+            int coins = Convert.ToInt32(coin);
+            int quat = coins / 25;
+            int quat_rem = coins % 25;
+            int dime = quat_rem / 10;
+            int dime_rem = quat_rem % 10;
+            int nickel = dime_rem / 5;
+            int pennies = dime_rem % 5;
+            WriteLine("Quarters: {0,5}", quat);
+            WriteLine("Dimes: {0,8}", dime);
+            WriteLine("Nickels: {0,6}", nickel);
+            WriteLine("Pennies: {0,6}", pennies);
+
+
+        }
+    }
+}
