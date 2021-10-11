@@ -1,0 +1,75 @@
+using System;
+using static System.Console;
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            DisplayHeading();
+            int valueOfSeconds = getSecondsValue(0);
+            int valueOfHours = getSecondsToHours(valueOfSeconds);
+            int secondsRem = getSecondsToHoursRem(valueOfSeconds);
+            int valueOfMinutes = getHoursToMinutes(secondsRem);
+            int minutesRem = getHoursToMinutesRem(secondsRem);
+            int secondRem = secRem(minutesRem);
+            DisplayResult(valueOfHours, valueOfMinutes, secondRem);
+            
+        }
+        static void DisplayHeading() {
+            WriteLine("\tSeconds Converter App");
+            WriteLine("\tThis Program will convert Seconds into hours, hours into minutes, minutes into seconds");
+        }
+        static int getSecondsValue(int seconds) {
+            string inputValue;
+            int second;
+            WriteLine();
+            Write("\tEnter the value of seconds :  ", seconds);
+            inputValue = ReadLine();
+            second = int.Parse(inputValue);
+            return second;
+        }
+        static int getSecondsToHours(int valueOfSeconds) {
+            int hoursConversion;
+            hoursConversion = valueOfSeconds / 3600;
+            return hoursConversion;
+
+            
+        }
+        static int getSecondsToHoursRem(int valueOfSeconds)
+        {
+            int hoursConversionRem;
+            hoursConversionRem = valueOfSeconds % 3600;
+            return hoursConversionRem;
+
+        }
+        static int getHoursToMinutes(int secondsRem)
+        {
+            int minutesConversion;
+            minutesConversion = secondsRem / 60;
+            return minutesConversion;
+
+
+        }
+        static int getHoursToMinutesRem(int secondsRem)
+        {
+            int hoursConversionRem;
+            hoursConversionRem =  secondsRem % 60;
+            return hoursConversionRem;
+
+        }
+        static int secRem(int minutesRem) {
+            int sec = minutesRem;
+            return sec;
+        }
+        static void DisplayResult(int valueOfHours, int valueOfMinutes, int secondRem) {
+            WriteLine();
+            WriteLine();
+            WriteLine("\tTotal hours are :{0,4} ", valueOfHours);
+            WriteLine("\tTotal Minutes are :{0,2} ", valueOfMinutes);
+            WriteLine("\tTotal Seconds are :{0,2} ", secondRem);
+        }
+    }
+}
+
