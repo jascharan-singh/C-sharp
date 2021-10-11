@@ -1,0 +1,69 @@
+using System;
+using static System.Console;
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            WriteLine("\t Tip Calculation App");
+            double userInput = billAmountFun("");
+            double tax = taxOfBill(userInput);
+            double fifteenorTwentyPer = fifttenOrTwentyPercentage(tax, "");
+            double display = totalBill(tax, fifteenorTwentyPer);
+            displayTotal(display);
+
+
+
+
+        }
+        static double billAmountFun(String inputFun)
+        {
+            double userInput;
+            String input;
+            Write("Please Enter The Amount Of The Bill  $", inputFun);
+            input = ReadLine();
+            userInput = int.Parse(input);
+            return userInput;
+        }
+        static double taxOfBill(double userInput)
+        {
+            double tax = 0.09;
+            double beforeBillTax = userInput * tax;
+            double afterBillTax = userInput + beforeBillTax;
+            WriteLine("The Bill is {0,31:C} \nThe tax (9%) is {1,26:C} \nAfter tax total bill before tip is {2,8:C}", userInput, beforeBillTax, afterBillTax);
+            return afterBillTax;
+        }
+        static double fifttenOrTwentyPercentage(double tax, string tipInput)
+        {
+            double fifteenBefore = tax * 0.15;
+            double twentyBefore = tax * 0.20;
+
+            WriteLine("15% tip of the bill is {0,19:C}  \n20% tip of the bill is {1,19:C}", fifteenBefore, twentyBefore);
+            Write("Please Enter 15 of 15% or 20 for 20% : {0}", tipInput);
+            string input = ReadLine();
+            double userTip = int.Parse(input);
+            if (userTip == 15)
+            {
+                return fifteenBefore;
+            }
+            else
+            {
+                return twentyBefore;
+            }
+        }
+        static double totalBill(double tax, double fifteenorTwentyPer)
+        {
+            double total = tax + fifteenorTwentyPer;
+            return total;
+
+        }
+        static void displayTotal(double display)
+        {
+            WriteLine();
+            WriteLine("Your Total bill is  {0,23:C}", display);
+        }
+
+    }
+}
