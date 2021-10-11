@@ -1,0 +1,79 @@
+using System;
+using static System.Console;
+
+namespace CarpetExampleWithClassMethods
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double roomWidth;
+            double roomLength;
+            double pricePerSquareYard;
+            double noOfSquareYards;
+
+            DisplayInstructions();
+            roomLength = GetDimension("Length");
+            roomWidth = GetDimension("Width");
+            pricePerSquareYard = GetPrice();
+            noOfSquareYards = DetermineSquareYards(roomWidth, roomLength);
+            DisplayResults(noOfSquareYards, pricePerSquareYard);
+            ReadKey();
+        }
+
+        static void DisplayInstructions()
+        {
+            WriteLine("This program will determine how much carpet to purchase. ");
+            WriteLine();
+            WriteLine("You will be asked to enter the size of the room");
+            WriteLine("and the price of the carpet, in price per square yds. ");
+            WriteLine();
+        }
+
+        static double GetDimension(string side)
+        {
+            string inputValue;
+            int feet, inches;
+            Write("Enter the {0} in feet: ", side);
+            inputValue = ReadLine();
+            feet = int.Parse(inputValue);
+            Write("Enter the {0} in inches: ", side);
+            inputValue = ReadLine();
+            inches = int.Parse(inputValue);
+            return (feet + (double)inches / 12);
+        }
+        static double GetPrice()
+        {
+            string inputValue;
+            double price;
+            Write("Enter the price Square Yard: ");
+            inputValue = ReadLine();
+            price = double.Parse(inputValue);
+            return price;
+        }
+        static double DetermineSquareYards(double width, double lenght)
+        {
+            const int SQ_FT_PER_SQ_YARD = 9;
+            double noOfSquareYards;
+            noOfSquareYards = lenght * width / SQ_FT_PER_SQ_YARD;
+            return noOfSquareYards;
+        }
+        static double DeterminePrice(double squareYards, double pricePerSquareYard)
+        {
+            WriteLine(squareYards);
+            WriteLine(pricePerSquareYard);
+            return (squareYards * pricePerSquareYard);
+        }
+
+        static void DisplayResults(double noOfSquareYards, double pricePerSquareYard)
+      {
+            WriteLine("");
+            WriteLine("Square Yards needed : {0:F} ", noOfSquareYards);
+            Write("Total Cost at {0:C} per Square Yards : {1:C}", pricePerSquareYard, noOfSquareYards * pricePerSquareYard);
+
+             
+
+        }
+
+    }
+}
