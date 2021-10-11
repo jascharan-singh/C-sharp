@@ -1,0 +1,23 @@
+using System;
+using static System.Console;
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            WriteLine(" \tTemperature Conversion App\n");
+            int celsius = 32;
+            WriteLine("Degrees Celsius:{0,6}", celsius);
+            double cel = Convert.ToDouble(celsius);
+            double Fahrenheit = (cel * 9) / 5 + 32;
+            string fahrenheit_conv = Convert.ToString(Fahrenheit);
+            WriteLine("Degrees Fahrenheit: {0,3:F}", fahrenheit_conv);
+
+
+
+
+
+        }
+    }
+}
